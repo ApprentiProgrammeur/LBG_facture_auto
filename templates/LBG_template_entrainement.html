@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Factures entrainement</title>
+    <style>
+    @page {
+        size: letter portrait;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+
+      margin-left: 0.5cm;
+      margin-right: 0.5cm;
+
+      /*width: 21cm;  
+      height: 29.7cm;*/
+    }
+
+    .bold{
+      font-weight: bold;
+    }
+    .large {
+      font-size: large;
+    }
+    .white{
+      color: white;
+    }
+    .grey{
+      color: grey;
+    }
+    .text-center{
+      text-align: center;
+    }
+    .text-right{
+      text-align: right;
+    }
+    .margin0{
+      margin: 0px;
+    }
+    .margin10{
+      margin: 10px;
+    }
+    .padding5{
+      padding: 5px;
+    }
+    .border-top{
+      border-top: solid black;
+    }
+    .border{
+      border: solid black;
+    }
+    .width10{
+      width: 10cm;
+    }
+
+    #logo{
+      margin-left: 18cm;
+    }
+    #logo img{
+      width: 2cm;
+      height: 2cm;
+    }
+
+</style>
+  </head>
+  <body>
+
+    <header class="">
+      <div id="logo" class="">
+        <img src="{{img_path}}logo_lbg.png">
+        <!--<img src="img/logo_lbg.png">-->
+      </div>
+      <div class="bold large">Laval Bourny Gym</div>
+      <div class="">42, place de la commune</div>
+      <div class="">53000 - Laval</div>
+      <div class=""><a href="">lavalbourny@orange.fr</a></div> 
+      
+      <div class="border-top white text-center margin0">vide</div>
+          <h1 class="text-center margin0">Note de frais</h1>
+          <h2 class="text-center margin0">facture entrainements vacances</h2>
+      <br>
+      <div id="info">
+        <div><span class="bold">Dossier suivi par</span> Celine RAMBEAULT</div>
+        <div><span class="bold">Entraineur</span> Franck Guillerm</div> <!-- VARIABLE ? -->
+        <div><span class="bold">Date d'émission</span> 12/12/12</div> <!-- VARIABLE ? -->
+        <div><span class="bold">Débiteur</span> Famille {{nom_famille}}</div> <!-- VARIABLE -->
+      </div>
+    </header>
+    <br>
+    <main class="">
+      <table class="">
+        <thead class="">
+          <tr class="border padding5">
+            <th class="bold text-center width10 ">Prénom</th>
+            <th class="bold text-center ">Prix unitaire</th>
+            <th class="bold text-center ">Quantité</th>
+            <th class="bold text-center ">Montant</th>
+          </tr>
+        </thead>
+        <tbody class="">
+          {% for membre in membres_famille %}
+          <tr class="border padding5">
+            <td class="text-center width10">{{membre.prenom_membre}}</td> <!-- VARIABLE membre -->
+            <td class="text-center">{{membre.tarif}}</td> <!-- VARIABLE membre -->
+            <td class="text-right">{{membre.heures}}</td> <!-- VARIABLE membre -->
+            <td class="text-right">{{membre.tarif*membre.heures}}</td> <!-- VARIABLE membre -->
+          </tr>
+          {% endfor %}
+          <tr class="border padding5">
+            <td colspan="3" class="">TOTAL</td>
+            <td class="text-right ">{{total}}</td> <!-- VARIABLE -->
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <div id="">
+        <div><span class="bold">Montant dû : </span>{{total}}€</div>
+        <br>
+        <div class="">Paiement à effecter sous 30 jours après réception de la facture par :
+          <ul>
+            <li>carte bancaire;</li>
+            <li>chèque (à l'ordre de Laval Bourny Gym)*;</li>
+            <li>espèces*;</li>
+            <li>chèque vacances*.</li>
+          </ul>
+          *à déposer dans une enveloppe en indiquant le nom de votre enfant
+        </div>
+      </div>
+    </main>
+    <br>
+    <br>
+    <br>
+    <footer>
+      <div class="text-center border-top grey">Créer par Elouan PRIME</div>
+    </footer>
+  </body>
+</html>

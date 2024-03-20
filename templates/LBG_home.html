@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %} 
+
+<div class="container">
+    <h1 class="center">Facturation LBG</h1>
+    <br>
+    <div class="mb-3">
+        <label for="file_entrainement" class="form-label">Facturation pour les entrainements</label>
+        <form method="POST" class="input-group" action="/entrainement" enctype="multipart/form-data">
+            <input type="file" name="file_entrainement" id="file_entrainement" class="form-control">
+            <button type="submit" class="btn btn-primary">Créer les factures</button>
+        </form>
+    </div>
+    <div>
+        <form action="/zip_factures" method="POST">
+            <button type="submit" class="btn btn-primary">Télécharger les factures</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

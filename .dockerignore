@@ -1,0 +1,9 @@
+.git/
+.idea/
+instance/
+__pycache__/
+./templates/__pycache__
+
+data
+docs
+factures

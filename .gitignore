@@ -1,0 +1,8 @@
+factures
+docs
+data
+
+__pycache__/
+*.py[cod]
+*$py.class
+./templates/__pycache__
