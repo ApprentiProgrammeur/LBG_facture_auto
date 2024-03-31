@@ -20,4 +20,4 @@ COPY . .
 
 EXPOSE 5000/tcp
 
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "LBG_pdf_generator:app"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "--timeout","120", "LBG_pdf_generator:app"]
